@@ -63,7 +63,7 @@ OPTIONS
     0
     :   CBR (default)
 
-    1-5
+    1-8
     :   VBR (higher value -\> higher bitrate)
 
 -w, --bandwidth \<n\>
