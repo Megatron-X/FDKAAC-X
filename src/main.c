@@ -120,7 +120,7 @@ PROGNAME " %s\n"
 " -b, --bitrate <n>             Bitrate in bits per seconds (for CBR)\n"
 " -m, --bitrate-mode <n>        Bitrate configuration\n"
 "                                 0: CBR (default)\n"
-"                                 1-5: VBR\n"
+"                                 1-8: VBR\n"
 "                               (VBR mode 1 is tuned for HE-AAC v2\n"
 "                                VBR mode 2 is tuned for HE-AAC\n"
 "                                VBR mode 3 or greater is for AAC LC)\n"
@@ -313,7 +313,7 @@ int parse_options(int argc, char **argv, aacenc_param_ex_t *params)
             params->bitrate = n;
             break;
         case 'm':
-            if (sscanf(optarg, "%u", &n) != 1 || n > 5) {
+            if (sscanf(optarg, "%u", &n) != 1 || n > 8) {
                 fprintf(stderr, "invalid arg for bitrate-mode\n");
                 return -1;
             }
