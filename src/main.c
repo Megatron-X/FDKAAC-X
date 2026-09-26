@@ -660,17 +660,8 @@ void put_tool_tag(m4af_ctx_t *m4af, const aacenc_param_ex_t *params,
                   HANDLE_AACENCODER encoder)
 {
     char tool_info[256];
-    char *p = tool_info;
-    LIB_INFO lib_info;
 
-    p += sprintf(p, PROGNAME " %s, ", fdkaac_version);
-    aacenc_get_lib_info(&lib_info);
-    p += sprintf(p, "libfdk-aac %s, ", lib_info.versionStr);
-    if (params->bitrate_mode)
-        sprintf(p, "VBR mode %d", params->bitrate_mode);
-    else
-        sprintf(p, "CBR %dkbps",
-                aacEncoder_GetParam(encoder, AACENC_BITRATE) / 1000);
+    sprintf(tool_info, "FDK-AAC");
 
     m4af_add_itmf_string_tag(m4af, M4AF_TAG_TOOL, tool_info);
 }
